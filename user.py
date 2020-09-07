@@ -9,8 +9,12 @@ class User:
         self.iUsername=iUsername
         self.email=email
         self.sUsername=sUsername
-
-
+   
+    def save_user(self):
+        User.user_list.append(self)
+    def delete_user(self):
+        User.user_list.remove(self)
+    
     @classmethod
     def from_input(cls):
         return cls(
@@ -19,10 +23,6 @@ class User:
             input('Email address: '),
             input('Snapchat username: '),
         )
-    def delete_user(self):
-        '''
-        delete_user method deletes an added username 
-        '''
-        User.remove(self)
+   
 user=User.from_input()
 

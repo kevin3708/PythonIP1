@@ -9,7 +9,10 @@ class Credentials:
         self.iPassword=iPassword
         self.email=emailPassword
         self.sPassword=sPassword
-
+    def save_credentials(self):
+        Credentials.credentials_list.append
+    def delete_credentials(self):
+        Credentials.credentials_list.remove
 
     @classmethod
     def from_input(cls):
