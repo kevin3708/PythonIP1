@@ -4,16 +4,16 @@ from credentials import Credentials
 def create_user(t_username,i_username,e_address,s_username):
     new_user = User(t_username,i_username,e_address,s_username)
     return new_user
-def save_user(user):
-    user.save_user()
-def delete_user(user):
-    user.delete_user()
+def save_users(User):
+    User.save_user()
+def delete_users(User):
+    User.delete_user()
 
 def create_credentials(t_password,i_password,e_password,s_password):
     new_credentials = Credentials(t_password,i_password,e_password,s_password)
     return new_credentials
-def save_credentials(credentials):
-    credentials.save_credentials()
+def save_credential(Credentials):
+    Credentials.save_credentials()
 def delete_credentials(credentials):
     credentials.delete_credentials()
 
@@ -31,18 +31,18 @@ def main():
         s_username = input()
         
 
-        save_user(create_user(t_username,i_username,e_address,s_username))
+        save_users(create_user(t_username,i_username,e_address,s_username))
         print("New Usernames created.")
-        print('\n')
+  
     elif short_code == 'du':
         print("Enter the username you wish to delete")
         del_user = input()
-        if delete_user(del_user):
+        if delete_users(del_user):
             User.user_list.remove(User)
-            print('\n')
+       
         else:
             print("That user does not exist")
-            print('\n')
+      
     if short_code == 'cc':
         print("New Credentials")
         t_password = input()
@@ -50,26 +50,25 @@ def main():
         e_password = input()
         s_password = input()
         
-        save_credentials(create_credentials(t_password,i_password,e_password,s_password))
+        save_credential(create_credentials(t_password,i_password,e_password,s_password))
         print("New Passwords created.")
     elif short_code == 'dc':
         print("Enter the credentials you wish to delete")
         del_credentials = input()
         if delete_credentials(del_credentials):
             Credentials.credentials_list.remove(Credentials)
-            print('\n')
+        
         else:
             print("Those credentials do not exist")
-            print('\n')
+          
     
-    elif short_code == 'ex':
-        print("Goodbye")
-        print('\n')
+        if short_code == 'ex':
+            print("Goodbye")
     
      
-    else:
-        print("I didn't get that, please use the short codes")
-        print('\n')
+        else:
+            print("I didn't get that, please use the short codes")
+   
         
 if __name__ == '__main__':
     main()
